@@ -1,0 +1,3 @@
+.img_box { width:100%;}
+.img_box li { float:left; overflow:hidden; margin:10px; height:200px; width:290px; border:1px solid red;}
+.img_box li img { height:200px; border-radius:5px;}

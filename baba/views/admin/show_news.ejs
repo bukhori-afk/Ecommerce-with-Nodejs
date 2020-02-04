@@ -1,0 +1,80 @@
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Data Active Express News</h3>
+  
+                <div class="box-tools pull-right">
+                  <div class="input-group input-group-sm">
+                    <a href="/express/admin/add_news">
+                      <button type="button" class="btn btn-block btn-success"><i class="fa fa-plus"></i>&nbsp;Add News</button>
+                    </a>
+                    <!-- <input type="text" name="table_search" class="form-control pull-right" placeholder="Search"> 
+                    <div class="input-group-btn">
+                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-warning -->
+              
+              <!-- /.box-alert -->
+              <% if (messages.info) { %>       
+              <div class="box-body">
+                <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                  <%= messages.info %>
+                </div>
+              </div>
+              <% } %>
+              <!-- /.box-header -->
+              <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                  <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Create Date</th>
+                    <th>Status</th>
+                    <th width="400">Description</th>
+                    <th width="100">Modify</th>
+                  </tr>
+                  
+                  <%
+                      if(data.length){
+                        for (var i=1; i < data.length; i++){
+                      
+                  %>
+                  <tr>
+                    <td><%= +i %></td>
+                    <td><img style="padding-top: 20px" src="/web/images/<%= data[i].images %>" width="70" height="70" /></td>
+                    <td><%= data[i].title %></td>
+                    <td><%= data[i].createdate %></td>
+                    <td><span class="label label-success">active</span></td>
+                    <td><%= data[i].description.substring(0, 150) %><a href="#">read more</a></td>
+                    <td>
+                      <a class="btn btn-warning" href="/express/admin/edit_news/<%= data[i].id_news %>"><i class="glyphicon glyphicon-edit"></i></a>                      
+                      <a class="btn btn-danger" href="/express/admin/delete_news/<%= data[i].id_news %>" onclick="return confirm('apakah anda yakin ingin hapus data ini=' + <%= data[i].id_news %>)"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                  </tr>                                
+                  <%
+                    } 
+                  }
+                %>
+                </table>
+              </div>
+              <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+            </div>
+            <!-- /.box -->
+          </div>
+        </div>

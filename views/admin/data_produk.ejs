@@ -1,0 +1,81 @@
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Data Produk</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="home">Home</a></li>
+              <li class="breadcrumb-item active">Data Produk</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="mt-4">
+                <a href="/express/admin/add_produk" class="d-block">
+                <div class="btn btn-primary btn-lg">
+                  <i class="fas fa-plus"></i>
+                  Tambah Data Produk
+                </div>
+                </a>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Nama Produk</th>
+                    <th>Kategori</th>
+                    <th>Slug</th>
+                    <th>Gambar Produk</th>
+                    <th>Harga Normal</th>
+                    <th>Harga Diskon</th>
+                    <th>Aksi</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+               
+                    <% if(data.length){%>
+                      <% for(i=0 ; i < data.length; i++){%>
+                    <tr>
+                    <td>#</td>
+                    <td><%=data[i].name_product%></td>
+                    <td><%=data[i].kategori%></td>
+                    <td><%=data[i].slug%></td>
+                    <td><img src ="/public/img/<%=data[i].gambar_product%>" style="width: 150px"></td>
+                    <td><%=data[i].price_normal%></td>
+                    <td><%=data[i].price_discount%></td>
+                    <td>
+                      <a class="btn btn-info btn-sm" href="edit_produk/<%= data[i].id_product %>" >Edit<i class="fas fa-edit"></i></a>
+                      <a class="btn btn-danger btn-sm" href="delete_produk/<%= data[i].id_product%>" >Delete <i class="fas fa-trash-alt"></i></a>
+                    </td>
+                    </tr>
+                    <% } } %>
+                    
+                  </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+      </div>
+      <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+      </div>
+      <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      </section>
+      <!-- /.content -->

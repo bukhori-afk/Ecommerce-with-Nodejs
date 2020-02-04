@@ -1,0 +1,75 @@
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>Data Brand</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="home">Home</a></li>
+                  <li class="breadcrumb-item active">Data Brand</li>
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="mt-4">
+                    <a href="/express/admin/add_brand" class="d-block">
+                  <div class="btn btn-primary btn-lg">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                    Tambah Brand
+                  </div>
+                    </a>
+                </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>No.</th>
+                      <th>Nama Brand</th>
+                      <th>Tanggal input</th>
+                      <th>Aksi</th>
+                    </tr>
+                    </thead>
+                    
+                    <tbody>
+                      <% if(data.length){%>
+                        <% for(i=0 ; i < data.length; i++){%>
+                      <tr>
+                      <td><%=data[i].id_brand%></td>
+                      <td><%=data[i].brand%></td>
+                      <td><%=data[i].tanggal%></td>
+                      <td>
+                        <a class="btn btn-info btn-sm" href="edit_brand/<%= data[i].id_brand %>"> Edit<i class="fas fa-edit"></i></a>
+                        <a href="#" class="btn btn-danger btn-sm" >Delete <i class="fas fa-trash-alt"></i></a>
+                      </td>
+                      </tr>
+                      <% } } %>
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      
+      
